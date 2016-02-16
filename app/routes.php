@@ -10,16 +10,26 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
+Route::get('/', array('before' => array('newyear','valentine','halloween'), 'uses' => 'HomeController@showWelcome'));
+Route::get('about', 'AboutController@showAbout');
+Route::get('about/directions', array('uses' => 'AboutController@showDirections', 'as' => 'directions'));
+Route::get('about/{theSubject}', 'AboutController@showSubject');
 
-Route::get('/', function()
+/*
+Route::get('/', array(
+  'before' => 'newyear'|'valentine'|'halloween', //array('newyear','valentine','halloween'),
+  'after' => 'logvisits',
+  function()
 {
 	return View::make('hello');
-});
+}));//->before('auth.basic');
 
 Route::get('about', function() {
     return 'ABOUT content';
 });
+*/
 
+/*
 Route::get('about/directions', array('as' => 'directions', function() {
     $theURL = URL::route('directions');
     return "DIRECTIONS go to this URL: $theURL";
@@ -28,11 +38,12 @@ Route::get('about/directions', array('as' => 'directions', function() {
 Route::any('submit-form', function() { //the function(){} is called a closure
     return 'process FORM';
 });
-
+*/
+ /*
 Route::get('about/{theSubject}', function($theSubject) {
     return $theSubject . ' content goes here';
 });
-
+*/
 Route::get('about/classes/{theSubject}', function($theSubject) {
     return "Content on $theSubject";
 });
@@ -41,3 +52,11 @@ Route::get('where', function() {
     return Redirect::route('directions'); //in this case, we have named our route to directions
     // as seen in line 22
 });
+
+Route::get('vote', array( 
+    'before' => 'age:17',
+    function()
+    {
+      return 'Vote!';
+    }
+));

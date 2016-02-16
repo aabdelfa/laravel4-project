@@ -88,3 +88,44 @@ Route::filter('csrf', function()
 		throw new Illuminate\Session\TokenMismatchException;
 	}
 });
+
+Route::filter('newyear', function() 
+{
+
+	if(date('m/d') == '01/01') {
+		return 'Happy New Year';
+	}
+
+});
+
+Route::filter('logvisits', function() 
+{
+
+	//Log Code goes here
+
+});
+
+Route::filter('valentines', function() 
+{
+
+	if(date('m/d') == '02/14') {
+		return 'Be my Valentine!';
+	}
+
+});
+
+Route::filter('halloween', function() 
+{
+
+	if(date('m/d') == '10/31') {
+		return 'Trick or Treat?';
+	}
+
+});
+
+Route::filter('age', function($route, $request, $age) //$route and $request have to be there by default
+{
+
+	if( (int) $age < 18) return "Soon...But not yet.";
+
+});
