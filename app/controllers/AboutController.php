@@ -4,7 +4,7 @@ class AboutController extends BaseController {
 
   public function showAbout()
   {
-    return 'ABOUT content';
+    return View::make('about');
   }
 
   public function showSubject($theSubject)
@@ -18,5 +18,3 @@ class AboutController extends BaseController {
     return "DIRECTIONS go to this URL: $theURL";
   }
 }
-
-?>

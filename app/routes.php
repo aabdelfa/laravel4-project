@@ -15,6 +15,7 @@ Route::get('about', 'AboutController@showAbout');
 Route::get('about/directions', array('uses' => 'AboutController@showDirections', 'as' => 'directions'));
 Route::get('about/{theSubject}', 'AboutController@showSubject');
 
+
 /*
 Route::get('/', array(
   'before' => 'newyear'|'valentine'|'halloween', //array('newyear','valentine','halloween'),
@@ -60,3 +61,25 @@ Route::get('vote', array(
       return 'Vote!';
     }
 ));
+
+Route::get('programs', function() {
+    return View::make('programs'); //in this case, we have named our route to directions
+    // as seen in line 22
+});
+
+Route::get('graphic-design', function() {
+    return View::make('graphic-design'); //in this case, we have named our route to directions
+    // as seen in line 22
+});
+
+Route::get('signup', function() {
+    return View::make('signup'); //in this case, we have named our route to directions
+    // as seen in line 22
+});
+
+Route::post('thanks', function() {
+    $theEmail = Input::get('email');
+    return View::make('thanks')->with('theEmail', $theEmail); //in this case, we have named our route to directions
+    // as seen in line 22
+});
+

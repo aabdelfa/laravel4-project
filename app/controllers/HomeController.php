@@ -17,7 +17,8 @@ class HomeController extends BaseController {
 
 	public function showWelcome()
 	{
-		return View::make('hello');
+		$theLandmarks = array('North Tryon','W T Harris','South Boulevard','Uptown');
+		return View::make('hello', array('theLocation' => 'Queen City', 'theWeather' => 'stormy', 'theLandmarks' => $theLandmarks));
 	}
 
 }
