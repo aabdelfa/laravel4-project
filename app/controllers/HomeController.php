@@ -17,6 +17,36 @@ class HomeController extends BaseController {
 
 	public function showWelcome()
 	{
+		/*
+		Schema::create('art', function($newtable)
+		{
+			$newtable -> increments('id');
+			$newtable -> string('artist');
+			$newtable -> string('title', 500);
+			$newtable -> text('description');
+			$newtable -> date('created');
+			$newtable -> date('exhibition_date');
+			$newtable -> timestamps();
+		});
+		
+		
+		
+		Schema::table('art', function($newcolumn)
+		{	
+			$newcolumn -> boolean('alumni');
+			$newcolumn -> dropColumn('exhibition_date');
+		});
+
+		Schema::DropIfExists('art');
+		
+
+		$painting = new Paintings;
+		$painting->title = 'Do no wrong';
+		$painting->artist = 'D. DoRight';
+		$painting->year = 2016;
+		$painting->save();
+		*/
+		
 		$theLandmarks = array('North Tryon','W T Harris','South Boulevard','Uptown');
 		return View::make('hello', array('theLocation' => 'Queen City', 'theWeather' => 'stormy', 'theLandmarks' => $theLandmarks));
 	}

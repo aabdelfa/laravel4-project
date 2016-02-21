@@ -83,3 +83,16 @@ Route::post('thanks', function() {
     // as seen in line 22
 });
 
+Route::get('data', function() {
+   /*
+    $painting = Paintings::find(1);
+    $painting->title = 'Do no wrong - Just do right';
+    $painting->save();
+    return $painting->title;
+    */
+    echo '<pre>';
+    $paintings = Paintings::where('year','2011')->get();
+    var_dump($paintings->toArray());
+    echo '</pre>';
+    //return $paintings;
+});
